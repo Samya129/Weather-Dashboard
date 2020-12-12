@@ -31,8 +31,27 @@
 //         console.log("Humidity: " + response.main.humidity);
 //         console.log("Temperature (F): " + tempF);
 //   });
-  let clickMe = $("#clickMe");
-  $("#clickMe").on("click", function(){
+  let searchButton = $("#searchButton");
+  $("#searchButton").on("click", function(){
 alert("Search button works!");
 
   });
+
+  $(document).ready(function() {
+
+    // CREATE THE MISSING CODE HERE. Your code should add content to the random-number div.
+    // ...jQuery click function...$ means selector
+    //don't put var lottoNumber =  here bc then you will get a number that keeps adding to it.
+    $("#random-button").on("click", function() {
+      //alert("") here to check if on-click works
+      var location = ""; 
+      for (i = 0; i < 9; i++){
+          var randomCity = Math.floor(Math.random() * 10); //need to incorporate input.value
+          location = randomCity + location
+          //console.log(lottoNumber)
+      }
+      $("").prepend("<br> <hr>"+ location);
+      //prepend each searched city to 
+    
+  });
+  })
