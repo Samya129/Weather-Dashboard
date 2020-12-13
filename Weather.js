@@ -4,10 +4,10 @@ let searchButton = $("#searchButton");
 $("#searchButton").on("click", function(event){
   alert("Works?")
   event.preventDefault();
-  var cityName = $("#searchInput").val();
+  var location = $("#searchInput").val();
   console.log($("#searchInput").val())
   var queryURL = "https://api.openweathermap.org/data/2.5/weather?" +
-      "q="+ cityName +"&appid=" + APIKey;
+      "q="+ location +"&appid=" + APIKey;
       $.ajax({
         url: queryURL,
         method: "GET"
@@ -15,6 +15,21 @@ $("#searchButton").on("click", function(event){
         // Display response in the console log
         console.log(response)
       });
-    $("").text
-    $("").prepend("<br> <hr>"+ cityName);
+    $("").text("<br><hr>"+ location)
+    $("").prepend("<br> <hr>"+ location);
   });
+  
+$(".date").text(luxon.DateTime.local().toLocaleString({
+  weekday: "long",
+  month: "long",
+  day: "2-digit",
+}));
+  $(".city").html("<h1>" + response.name + " Weather Details</h1>");
+
+  var tempF = (response.main.temp - 273.15) * 1.80 + 32;
+  $(".tempF").text("Temperature (F) " + tempF.toFixed(2));
+  console.log("Temperature (F): " + tempF);
+
+  $(".humidity").text("Humidity: " + response.main.humidity);
+  console.log("Humidity: " + response.main.humidity);
+  
