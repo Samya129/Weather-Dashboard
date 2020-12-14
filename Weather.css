@@ -2,3 +2,16 @@ strong{
    font-size: 20px; 
  
 }
+.Low{
+   background-color: green;
+}
+
+.Moderate{
+   background-color: yellow;
+}
+.High{
+   background-color: orange;
+}
+.Very-high{
+   background-color: red;
+}

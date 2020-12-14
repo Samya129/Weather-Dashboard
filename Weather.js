@@ -54,6 +54,19 @@ $("#searchButton").on("click", function(event){
     console.log(response)
     $(".uvIndex").text("uvIndex: " + response.value);
     console.log("uvIndex: " + response.value);
+
+
+    var uvIndex= response.value;
+    
+    if( uvIndex <= 2){
+      $(this).addClass("Low");
+    } if (uvIndex = 3 || uvIndex <= 5){
+      $(this).addClass("Moderate");
+    } if (uvIndex = 6 || uvIndex <= 7){
+      $(this).addClass("High");
+    }if (uvIndex = 8 || uvIndex <= 10){
+      $(this).addClass("Very-high");
+    }
     }
     )});
   });
@@ -63,15 +76,3 @@ $("#searchButton").on("click", function(event){
       //       var random = Math.floor(Math.random() * 10);
       //       randomPlace = random + randomPlace
       //   }
-    
-      
-      var uvIndex= [];
-    
-        if( uvIndex < 2){
-          $(this).addClass("");
-        } if (uvIndex <){
-          $(this).addClass("present");
-        } else { (presentHour < fixedHour)
-          $(this).addClass("future");
-        }
-      
