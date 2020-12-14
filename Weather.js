@@ -3,7 +3,7 @@ let searchButton = $("#searchButton");
 
 $("#searchButton").on("click", function(event){
   alert("Works?")
-  event.preventDefault();
+  event.preventDefault(); //how to add an enter keyup or down function with on click... when weather info comes up its pink before click its the transparent background.
   var location = $("#searchInput").val();
   console.log($("#searchInput").val())
   var queryURL = "https://api.openweathermap.org/data/2.5/weather?" +
@@ -27,13 +27,13 @@ $("#searchButton").on("click", function(event){
       $("#weatherArt").attr('src', iconurl);
         
       var tempF = (response.main.temp - 273.15) * 1.80 + 32;
-      $(".tempF").text("Temperature (F) " + tempF.toFixed(2));
+      $(".tempF").text("Temperature: " + tempF.toFixed(2) + " °F");
       console.log("Temperature (F): " + tempF);
 
       $(".windSpeed").text("Wind Speed: " + response.wind.speed + " MPH");
       console.log("Wind Speed: " + response.wind.speed + "MPH");
 
-      $(".humidity").text("Humidity: " + response.main.humidity + "%");
+      $(".humidity").text("Humidity: " + response.main.humidity + " %");
       console.log("Humidity: " + response.main.humidity + "%");
       
      $("inputText").text("<br><hr>"+ response.name);

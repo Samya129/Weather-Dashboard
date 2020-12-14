@@ -1,9 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+* {
+   box-sizing: border-box;
+   font-family: 'Great Vibes', cursive;
+}
 strong{
    font-size: 20px; 
  
 }
+:root{
+background-image: url(Images/Clouds.png);
+background-position: center;
+background-repeat: no-repeat; 
+background-size: cover;
+max-width: 100%;
+height: 100%;
+display: block;
+}
+.jumbotron, .jumbotron-fluid{
+   background-color: rgb(249, 228, 232);
+   padding: 12px;
+   margin: auto;
+/* background-image: url(Images/Olaf.GIF);
+background-size: contain;
+padding: 200px;
+border: none; */
+}
+h1{
+   text-align: center;
+   background-color: rgb(249, 228, 232);
+   padding: 20px;
+}
+.searchButton{
+   background-color: rgb(249, 228, 232);
+}
+.column-md-1, .column-md-2, .column-md-3, .column-md-9{
+   background-color: rgb(249, 228, 232);
+}
+
 .Low{
    background-color: green;
+   
 }
 
 .Moderate{
