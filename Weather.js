@@ -14,7 +14,7 @@ $("#searchButton").on("click", function(event){
       }).then(function(response) {
         // Display response in the console log
         console.log(response)
-        $(".city").html("<h1>" + response.name + " Weather Forecast</h1>");
+        $(".city").html("<h1>" + response.name + weatherArt + " Weather Forecast</h1>");
 
         $(".date").text(luxon.DateTime.local().toLocaleString({
           weekday: "long",
@@ -26,11 +26,16 @@ $("#searchButton").on("click", function(event){
       $(".tempF").text("Temperature (F) " + tempF.toFixed(2));
       console.log("Temperature (F): " + tempF);
 
-      $(".windSpeed").text("Wind Speed: " + response.wind.speed + "MPH");
+      $(".windSpeed").text("Wind Speed: " + response.wind.speed + " MPH");
       console.log("Wind Speed: " + response.wind.speed + "MPH");
 
       $(".humidity").text("Humidity: " + response.main.humidity + "%");
       console.log("Humidity: " + response.main.humidity + "%");
+
+      let weatherArt = weatherArt.weather[0].icon;
+      let art = document.createElement("img");
+      art.src = `http://openweathermap.org/img/w/${weatherArt}.png`;
+
       
     // $("").text("<br><hr>"+ location).val()
     // $("").prepend("<br> <hr>"+ location);
@@ -55,16 +60,15 @@ $("#searchButton").on("click", function(event){
     $(".uvIndex").text("uvIndex: " + response.value);
     console.log("uvIndex: " + response.value);
 
-
     var uvIndex= response.value;
     
     if( uvIndex <= 2){
       $(this).addClass("Low");
-    } if (uvIndex = 3 || uvIndex <= 5){
+    } else if (uvIndex = 3 || uvIndex <= 5){
       $(this).addClass("Moderate");
-    } if (uvIndex = 6 || uvIndex <= 7){
+    } else if (uvIndex = 6 || uvIndex <= 7){
       $(this).addClass("High");
-    }if (uvIndex = 8 || uvIndex <= 10){
+    } else (uvIndex = 8 || uvIndex <= 10){
       $(this).addClass("Very-high");
     }
     }
