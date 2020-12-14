@@ -14,7 +14,7 @@ $("#searchButton").on("click", function(event){
       }).then(function(response) {
         // Display response in the console log
         console.log(response)
-        $(".city").html("<h1>" + response.name + weatherArt + " Weather Forecast</h1>");
+        $(".city").html("<h1>" + response.name + " Weather Forecast</h1>");
 
         $(".date").text(luxon.DateTime.local().toLocaleString({
           weekday: "long",
@@ -22,6 +22,10 @@ $("#searchButton").on("click", function(event){
           day: "2-digit",
         }));
     
+      let weatherArt = response.weather[0].icon;
+      let iconurl = "https://openweathermap.org/img/w/" + weatherArt + ".png";
+      $("#weatherArt").attr('src', iconurl);
+        
       var tempF = (response.main.temp - 273.15) * 1.80 + 32;
       $(".tempF").text("Temperature (F) " + tempF.toFixed(2));
       console.log("Temperature (F): " + tempF);
@@ -31,14 +35,9 @@ $("#searchButton").on("click", function(event){
 
       $(".humidity").text("Humidity: " + response.main.humidity + "%");
       console.log("Humidity: " + response.main.humidity + "%");
-
-      let weatherArt = weatherArt.weather[0].icon;
-      let art = document.createElement("img");
-      art.src = `http://openweathermap.org/img/w/${weatherArt}.png`;
-
       
-    // $("").text("<br><hr>"+ location).val()
-    // $("").prepend("<br> <hr>"+ location);
+     $("inputText").text("<br><hr>"+ response.name);
+    $("#inputSearch").prepend("#locationName");
 
     var lat = response.coord.lat
     var lon = response.coord.lon 
@@ -64,11 +63,11 @@ $("#searchButton").on("click", function(event){
     
     if( uvIndex <= 2){
       $(this).addClass("Low");
-    } else if (uvIndex = 3 || uvIndex <= 5){
+    } if (uvIndex = 3 || uvIndex <= 5){
       $(this).addClass("Moderate");
-    } else if (uvIndex = 6 || uvIndex <= 7){
+    } if (uvIndex = 6 || uvIndex <= 7){
       $(this).addClass("High");
-    } else (uvIndex = 8 || uvIndex <= 10){
+    } else if (uvIndex = 8 || uvIndex <= 10){
       $(this).addClass("Very-high");
     }
     }
