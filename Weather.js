@@ -14,22 +14,64 @@ $("#searchButton").on("click", function(event){
       }).then(function(response) {
         // Display response in the console log
         console.log(response)
-      });
-    $("").text("<br><hr>"+ location)
-    $("").prepend("<br> <hr>"+ location);
+        $(".city").html("<h1>" + response.name + " Weather Forecast</h1>");
+
+        $(".date").text(luxon.DateTime.local().toLocaleString({
+          weekday: "long",
+          month: "long",
+          day: "2-digit",
+        }));
+    
+      var tempF = (response.main.temp - 273.15) * 1.80 + 32;
+      $(".tempF").text("Temperature (F) " + tempF.toFixed(2));
+      console.log("Temperature (F): " + tempF);
+
+      $(".windSpeed").text("Wind Speed: " + response.wind.speed + "MPH");
+      console.log("Wind Speed: " + response.wind.speed + "MPH");
+
+      $(".humidity").text("Humidity: " + response.main.humidity + "%");
+      console.log("Humidity: " + response.main.humidity + "%");
+      
+    // $("").text("<br><hr>"+ location).val()
+    // $("").prepend("<br> <hr>"+ location);
+
+    var lat = response.coord.lat
+    var lon = response.coord.lon 
+
+    var queryURL2 = 
+    "https://api.openweathermap.org/data/2.5/uvi?" + 
+    "lat=" + 
+    lat + 
+    "&lon=" + 
+    lon +
+    "&appid=" + 
+    APIKey
+
+    $.ajax({
+    url: queryURL2, 
+    method: "GET",
+    }).then(function (response) {
+    console.log(response)
+    $(".uvIndex").text("uvIndex: " + response.value);
+    console.log("uvIndex: " + response.value);
+    }
+    )});
   });
-  
-$(".date").text(luxon.DateTime.local().toLocaleString({
-  weekday: "long",
-  month: "long",
-  day: "2-digit",
-}));
-  $(".city").html("<h1>" + response.name + " Weather Details</h1>");
 
-  var tempF = (response.main.temp - 273.15) * 1.80 + 32;
-  $(".tempF").text("Temperature (F) " + tempF.toFixed(2));
-  console.log("Temperature (F): " + tempF);
-
-  $(".humidity").text("Humidity: " + response.main.humidity);
-  console.log("Humidity: " + response.main.humidity);
-  
+      // var randomPlace = ""; //generating a for loop or maybe a for each? for each place clicked might need to add document.ready
+      //   for (i = 0; i < 9; i++){
+      //       var random = Math.floor(Math.random() * 10);
+      //       randomPlace = random + randomPlace
+      //   }
+    
+      
+      var uvIndex= [];
+    
+        if( uvIndex < 2){
+          $(this).addClass("");
+        } if (uvIndex <){
+          $(this).addClass("present");
+        } else { (presentHour < fixedHour)
+          $(this).addClass("future");
+        }
+      

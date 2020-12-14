@@ -5,13 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Dashboard</title>
     <link rel="stylesheet" href="Weather.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-  <script
-    src=“https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js”
-    integrity=“sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q”
-    crossorigin=“anonymous”
-  ></script>
-</head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/luxon@1.25.0/build/global/luxon.min.js"></script>
+  </head>
 <body>
 
     <div class="jumbotron jumbotron-fluid">
@@ -34,7 +32,14 @@
           
           <!-- Three Fourths of screen (9/12) -->
           <div class="col-md-9">
-            <p> Top part sit amet ligula neque. Suspendisse non interdum dolor. Aenean commodo mauris ac viverra hendrerit. Sed convallis, ipsum at interdum dignissim, tortor dolor mollis velit, at elementum leo dolor a purus.Integer sagittis nisl eu ligula commodo, id semper odio pretium. Vestibulum lobortis dui tempor justo vestibulum rutrum. Aenean ultricies vitae nisl eget imperdiet.
+            <p> 
+              <div class="city"></div>
+              <div class="date"></div>
+              <div class="tempF"></div>
+              <div class="humidity"></div>
+              <div class="windSpeed"></div>
+              <div class="uvIndex"></div>
+
             </p>
           </div>
         </section>
@@ -49,16 +54,12 @@
           <div class="col-md-9">
             <div class="row">
               <div class="col-md-1"></div>
-              
+
               <div class="col-md-2">
                 <div class="card" style="width: 9;">
                   <img src="..." class="card-img-top" alt="...">
                   <div class="card-body">
                     <p class="card-text"> 
-                      <div class="city"></div>
-                      <div class="date"></div>
-                      <div class="tempF"></div>
-                      <div class="humidity"></div>
                     </p>
                   </div>
                 </div>
@@ -105,8 +106,6 @@
           
         </section>
       </section>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="Weather.js"></script>
 </body>
 </html>
