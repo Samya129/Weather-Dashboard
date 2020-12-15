@@ -71,11 +71,14 @@ uvIndexEl = $(".uvIndex")
     
     if( uvIndex <= 2){
       uvIndexEl.addClass("Low");
-    } if (uvIndex = 3 || uvIndex <= 5){
+      
+    } else if (uvIndex > 2 && uvIndex <= 5){
       uvIndexEl.addClass("Moderate");
-    } if (uvIndex = 6 || uvIndex <= 7){
+      
+    } else if (uvIndex > 5 && uvIndex <= 7){
       uvIndexEl.addClass("High");
-    } else if (uvIndex = 8 || uvIndex <= 10){
+      
+    } else (uvIndex > 7 && uvIndex <= 10){
       uvIndexEl.addClass("Very-high");
     }
     }
