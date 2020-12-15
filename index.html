@@ -9,16 +9,16 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"> 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/luxon@1.25.0/build/global/luxon.min.js"></script>
-  </head>
+</head>
 <body>
-<img class="img-fluid" src="Images/Clouds.png" alt="Clouds Image">
-<div class="jumbotron jumbotron-fluid">
-  <div class="container">
-    <h1 class="display-4">Weather Dashboard</h1>
-    <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+  <img class="img-fluid" src="Images/Clouds.png" alt="Clouds Image">
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">Weather Dashboard</h1>
+      <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+    </div>
   </div>
-</div>
-<section class="container">
+  <section class="container">
         <section class="row">
           <!-- One Fourth of screen (3/12) -->
               <div class="col-md-3 searchArea">
@@ -33,23 +33,24 @@
           <!-- Three Fourths of screen (9/12) -->
           <div class="col-md-9 containerBig">
             <p> 
-              <div id="icon"><img id="weatherArt"></div>
-              <div class="city"></div>
-              <div class="date"></div> 
-              <div class="tempF"></div>
-              <div class="humidity"></div>
-              <div class="windSpeed"></div>
-              <div class="uvIndex"></div>
+              <div id="icon fontProp"><img id="weatherArt"></div>
+              <div id="fontProp"class="city"></div>
+              <div id="fontProp"class="date"></div> 
+              <div id="fontProp"class="tempF"></div>
+              <div id="fontProp"class="humidity"></div>
+              <div id="fontProp"class="windSpeed"></div>
+              <div id="fontProp"class="uvIndex"></div>
             </p>
           </div>
         </section>
     </section>
 
     <section class="container">
-      <div class="col-md-3"></div>
-        <section class="row fiveDay">
+        <section class="row">
+          <div class="col-md-3 empty"></div>
           <div class="col-md-9">
-            <div class="row">
+            <h2>Five-Day Forecast</h2>
+            <div class="row fiveDayForecast">
               <div class="col-md-1"></div>
 
               <div class="col-md-2">
