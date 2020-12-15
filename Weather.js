@@ -36,8 +36,16 @@ $("#searchButton").on("click", function(event){
       $(".humidity").text("Humidity: " + response.main.humidity + " %");
       console.log("Humidity: " + response.main.humidity + "%");
       
-     $("inputText").text("<br><hr>"+ response.name);
-    $("#inputSearch").prepend("#locationName");
+    //$("inputText").text("<br><hr>"+ response.name);
+      for (i = 0; i < 9; i++){
+        var randomCity = Math.floor(Math.random() * 10);
+        location = randomCity + location
+        //console.log(citiesBtn)
+    }
+    $("#buttonList").prepend("<button>"+ response.name +"</button>");
+    //hr break into it 
+    
+
 
     var lat = response.coord.lat
     var lon = response.coord.lon 
@@ -58,24 +66,18 @@ $("#searchButton").on("click", function(event){
     console.log(response)
     $(".uvIndex").text("uvIndex: " + response.value);
     console.log("uvIndex: " + response.value);
-
+uvIndexEl = $(".uvIndex")
     var uvIndex= response.value;
     
     if( uvIndex <= 2){
-      $(this).addClass("Low");
+      uvIndexEl.addClass("Low");
     } if (uvIndex = 3 || uvIndex <= 5){
-      $(this).addClass("Moderate");
+      uvIndexEl.addClass("Moderate");
     } if (uvIndex = 6 || uvIndex <= 7){
-      $(this).addClass("High");
+      uvIndexEl.addClass("High");
     } else if (uvIndex = 8 || uvIndex <= 10){
-      $(this).addClass("Very-high");
+      uvIndexEl.addClass("Very-high");
     }
     }
     )});
   });
-
-      // var randomPlace = ""; //generating a for loop or maybe a for each? for each place clicked might need to add document.ready
-      //   for (i = 0; i < 9; i++){
-      //       var random = Math.floor(Math.random() * 10);
-      //       randomPlace = random + randomPlace
-      //   }

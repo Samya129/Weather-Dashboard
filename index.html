@@ -13,7 +13,7 @@
 <body>
 <img class="img-fluid" src="Images/Clouds.png" alt="Clouds Image">
     <div class="jumbotron jumbotron-fluid">
-        <div class="containerDashboard">
+        <div class="container">
           <h1 class="display-4">Weather Dashboard</h1>
           <p class="lead"></p>
         </div>
@@ -27,9 +27,10 @@
                   <input id="searchInput" type="text" placeholder="Columbus, Ohio" class="inputText">
                   <input class="fas fa-search" type="submit" id="searchButton" value="Search">
               </div>
-              <p></p>
-              </div>
-          
+              <p class="citiesList">Include this container with search area for value of city input.Name only.</p>
+            <div id="buttonList"></div>
+            </div>
+
           <!-- Three Fourths of screen (9/12) -->
           <div class="col-md-9">
             <p> 
@@ -49,7 +50,6 @@
         <section class="row">
 
           <div class="col-md-3">
-            <p id="locationName">Include this container with search area for value of city input.Name only</p>
           </div>
           <div class="col-md-9">
             <div class="row">
