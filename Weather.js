@@ -68,19 +68,20 @@ $("#searchButton").on("click", function(event){
     console.log("uvIndex: " + response.value);
 uvIndexEl = $(".uvIndex")
     var uvIndex= response.value;
-    
     if( uvIndex <= 2){
       uvIndexEl.addClass("Low");
-      
+      //ohio example
     } else if (uvIndex > 2 && uvIndex <= 5){
       uvIndexEl.addClass("Moderate");
-      
+      //florida example
     } else if (uvIndex > 5 && uvIndex <= 7){
       uvIndexEl.addClass("High");
-      
-    } else (uvIndex > 7 && uvIndex <= 10){
+      //hawaii
+    } else {
       uvIndexEl.addClass("Very-high");
+      //??
     }
+    
     }
     )});
   });
