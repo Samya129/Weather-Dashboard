@@ -36,6 +36,14 @@
 .searchButton{
    background-color: rgb(249, 228, 232);
 }
+#buttonList{
+   display: block;
+   cursor: pointer;
+   text-align: center;
+   display: flex;
+   flex-direction: row;
+   justify-content: space-around;
+}
 .container{
    background-color: rgb(249, 228, 232);
 }

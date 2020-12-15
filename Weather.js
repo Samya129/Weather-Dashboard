@@ -66,22 +66,32 @@ $("#searchButton").on("click", function(event){
     console.log(response)
     $(".uvIndex").text("uvIndex: " + response.value);
     console.log("uvIndex: " + response.value);
-uvIndexEl = $(".uvIndex")
+    uvIndexEl = $(".uvIndex")
     var uvIndex= response.value;
     if( uvIndex <= 2){
       uvIndexEl.addClass("Low");
-      //ohio example
+      //ohio, new york example
     } else if (uvIndex > 2 && uvIndex <= 5){
       uvIndexEl.addClass("Moderate");
       //florida example
     } else if (uvIndex > 5 && uvIndex <= 7){
       uvIndexEl.addClass("High");
-      //hawaii
+      //hawaii example
     } else {
       uvIndexEl.addClass("Very-high");
       //??
     }
+    var queryURL3 = "https://api.openweathermap.org/data/2.5/onecall?" + "lat=" + lat + "&lon=" + lon + "&units=imperial&exclude=current,minutely,hourly,alerts" + "&appid=" + APIKey; 
+
+
+    $.ajax({
+      url: queryURL3, 
+      method: "GET",
+      }).then(function (response) {
+      console.log(response); 
+    });
     
-    }
-    )});
+    });
+    
   });
+})
