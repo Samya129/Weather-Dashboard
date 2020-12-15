@@ -12,29 +12,28 @@
   </head>
 <body>
 <img class="img-fluid" src="Images/Clouds.png" alt="Clouds Image">
-    <div class="jumbotron jumbotron-fluid">
-        <div class="container">
-          <h1 class="display-4">Weather Dashboard</h1>
-          <p class="lead"></p>
-        </div>
-      </div>
-      <section class="container">
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Weather Dashboard</h1>
+    <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+  </div>
+</div>
+<section class="container">
         <section class="row">
           <!-- One Fourth of screen (3/12) -->
-              <div class="col-md-3">
-                <strong class="searchTitle">Search for a City:</strong>
+              <div class="col-md-3 searchArea">
+                <header class="searchHeader"><b>Search for a City:</b></header>
                 <div class="input">
                   <input id="searchInput" type="text" placeholder="Columbus, Ohio" class="inputText">
-                  <input class="fas fa-search" type="submit" id="searchButton" value="Search">
+                  <input type="submit" id="searchButton" value="Search">
               </div>
-              <p>Include this container with search area for value of city input.Name only.</p>
             <div id="buttonList"></div>
             </div>
 
           <!-- Three Fourths of screen (9/12) -->
-          <div class="col-md-9">
+          <div class="col-md-9 containerBig">
             <p> 
-              <div id="icon"><img id="weatherArt" src=""></div>
+              <div id="icon"><img id="weatherArt"></div>
               <div class="city"></div>
               <div class="date"></div> 
               <div class="tempF"></div>
@@ -47,17 +46,14 @@
     </section>
 
     <section class="container">
-        <section class="row">
-
-          <div class="col-md-3">
-          </div>
+      <div class="col-md-3"></div>
+        <section class="row fiveDay">
           <div class="col-md-9">
             <div class="row">
               <div class="col-md-1"></div>
 
               <div class="col-md-2">
                 <div class="card" style="width: 9;">
-                  <img src="..." class="card-img-top" alt="...">
                   <div class="card-body">
                     <p class="card-text">Type info here 1 </p>
                   </div>
@@ -66,58 +62,40 @@
               
               <div class="col-md-2">
                 <div class="card" style="width: 9;">
-                  <img src="..." class="card-img-top" alt="...">
                   <div class="card-body">
-                    <p class="card-text">Type info here 2</p>
+                    <p class="card-text">Insert info here 2</p>
                   </div>
                 </div>
               </div>
     
               <div class="col-md-2">
                 <div class="card" style="width: 9;">
-                  <img src="..." class="card-img-top" alt="...">
                   <div class="card-body">
-                    <p class="card-text">Type info here 3</p>
+                    <p class="card-text">Insert info here 3</p>
                   </div>
                 </div>
               </div>
     
               <div class="col-md-2">
                 <div class="card" style="width: 9;">
-                  <img src="..." class="card-img-top" alt="...">
                   <div class="card-body">
-                    <p class="card-text">Type info here 4</p>
+                    <p class="card-text">Insert info here 4</p>
                   </div>
                 </div>
               </div>
               
               <div class="col-md-2">
                 <div class="card" style="width: 9;">
-                  <img src="..." class="card-img-top" alt="...">
                   <div class="card-body">
-                    <p class="card-text">Type info here 5</p>
+                    <p class="card-text">Insert info here 5</p>
                   </div>
                   <div class="col-md-1"></div>
                 </div>
               </div>
             </div>
-          </div>
-          
+          </div>  
         </section>
       </section>
     <script src="Weather.js"></script>
 </body>
 </html>
-<!--
-<ul class="nav nav-tabs card-header-tabs">
-      <li class="nav-item">
-        <a class="nav-link active" href="#">Active</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-      </li>
-    </ul> use this for the list on the side
--->

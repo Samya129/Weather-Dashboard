@@ -36,17 +36,9 @@ $("#searchButton").on("click", function(event){
       $(".humidity").text("Humidity: " + response.main.humidity + " %");
       console.log("Humidity: " + response.main.humidity + "%");
       
-    //$("inputText").text("<br><hr>"+ response.name);
-      for (i = 0; i < 9; i++){
-        var randomCity = Math.floor(Math.random() * 10);
-        location = randomCity + location
-        //console.log(citiesBtn)
-    }
-    $("#buttonList").prepend("<button>"+ response.name +"</button>");
+    $("#buttonList").append("<button>"+ response.name +"</button>");
     //hr break into it 
     
-
-
     var lat = response.coord.lat
     var lon = response.coord.lon 
 
@@ -83,12 +75,12 @@ $("#searchButton").on("click", function(event){
     }
     var queryURL3 = "https://api.openweathermap.org/data/2.5/onecall?" + "lat=" + lat + "&lon=" + lon + "&units=imperial&exclude=current,minutely,hourly,alerts" + "&appid=" + APIKey; 
 
-
     $.ajax({
       url: queryURL3, 
       method: "GET",
       }).then(function (response) {
       console.log(response); 
+      
     });
     
     });

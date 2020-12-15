@@ -4,8 +4,12 @@
    box-sizing: border-box;
    font-family: 'Great Vibes', cursive;
 }
-.searchTitle{
+strong{
    font-size: 20px; 
+   text-align: center;
+}
+#searchInput{
+   text-align: center;
 }
 
 .img-fluid{
@@ -17,34 +21,46 @@
    top:0;
    left: 0;
 } */
-    
-.pageBody{
-   background-image: url("./Images/Clouds.png");
-}
 
-
-.jumbotron, .jumbotron-fluid{
+ .jumbotron, .jumbotron-fluid{
    background-color: rgb(249, 228, 232);
    padding: 12px;
    margin: auto;
-}
- h1{
-   text-align: center;
-   background-color: rgb(249, 228, 232);
-   padding: 20px;
 } 
-.searchButton{
+  h1{
+   font-size: 40px;
+   padding: 20px;
+   margin-top: 4px;
+}  
+
+#searchButton{
    background-color: rgb(249, 228, 232);
+   margin: 10px;
 }
+.searchHeader{
+   font-size: 25px;
+}
+.searchHeader, .containerBig{
+   padding-top: 20px;
+}
+.containerBig{
+   height: 300px;
+}
+
 #buttonList{
    display: block;
+   width: 100%;
+   padding: 14px;
    cursor: pointer;
-   text-align: center;
-   display: flex;
-   flex-direction: row;
-   justify-content: space-around;
+   text-align: left;
+   height: 400px;
 }
-.container{
+
+#buttonList button{
+   border: 2px solid white;
+   display: block;
+   cursor: pointer;
+   margin: 15px;
    background-color: rgb(249, 228, 232);
 }
 
