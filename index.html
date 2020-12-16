@@ -11,25 +11,27 @@
     <script src="https://cdn.jsdelivr.net/npm/luxon@1.25.0/build/global/luxon.min.js"></script>
 </head>
 <body>
-  <img class="img-fluid" src="Images/Clouds.png" alt="Clouds Image">
-  <div class="jumbotron jumbotron-fluid">
-    <div class="container">
-      <h1 class="display-4">Weather Dashboard</h1>
-      <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
-    </div>
-  </div>
+
   <section class="container">
-        <section class="row">
+    <!-- <div class="jumbotron jumbotron-fluid" style="background-color: rgb(249, 228, 232);">
+      <div class="container Heading">
+          <h1 class="display-4">Weather Dashboard</h1>
+          <p class="lead" style="text-align: center;">Think positive! Be positive!</p>
+      </div>
+    </div> -->
+    <img class="img-fluid" src="Images/Clouds.png" alt="Clouds Image">
+
+        <section id="sidebar" class="row">
           <!-- One Fourth of screen (3/12) -->
-              <div class="col-md-3 searchArea">
+          <div class="col-md-3 searchArea">
                 <header class="searchHeader"><b>Search for a City:</b></header>
-                <div class="input">
+              <div class="input">
                   <input id="searchInput" type="text" placeholder="Columbus, Ohio" class="inputText">
                   <input type="submit" id="searchButton" value="Search">
               </div>
-            <div id="buttonList"></div>
-            </div>
-
+                  <div id="buttonList">
+                  </div>
+          </div>
           <!-- Three Fourths of screen (9/12) -->
           <div class="col-md-9 containerBig">
             <p> 
@@ -43,12 +45,12 @@
             </p>
           </div>
         </section>
-    </section>
+  </section>
 
-    <section class="container">
+  <section class="container">
         <section class="row">
           <div class="col-md-3 empty"></div>
-          <div class="col-md-9">
+          <div class="col-md-9 fiveDayForecast">
             <h2>Five-Day Forecast</h2>
             <div class="row fiveDayForecast">
               <div class="col-md-1"></div>
@@ -56,7 +58,7 @@
               <div class="col-md-2">
                 <div class="card" style="width: 9;">
                   <div class="card-body">
-                    <p class="card-text">Type info here 1 </p>
+                    <p class="card-text">Insert info here 1 </p>
                   </div>
                 </div>
               </div>
@@ -96,7 +98,7 @@
             </div>
           </div>  
         </section>
-      </section>
+  </section>
     <script src="Weather.js"></script>
 </body>
 </html>

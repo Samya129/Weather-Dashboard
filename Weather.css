@@ -10,6 +10,7 @@ strong{
 }
 #searchInput{
    text-align: center;
+   border: 2px solid white;
 }
 
 #fontProp{
@@ -17,10 +18,8 @@ strong{
    font-weight: bold;
 }
 
-.col-md-2{
-   height: ;
-}
 .img-fluid{
+   /* background-image: url(Images/Clouds.png); */
    min-height: 100%;
    min-width: 1024px;
    width: 100%;
@@ -28,14 +27,18 @@ strong{
    position: fixed;
    top:0;
    left: 0;
-} */
+   /* z-index: 10; */
+} 
 
  .jumbotron, .jumbotron-fluid{
-   background-color: rgb(249, 228, 232);
-   padding: 12px;
-   margin: auto;
+   z-index: 20;
 } 
+
+/* .searchArea .fiveDayForecast .containerBig {
+   z-index: 300; 
+} */
   h1{
+   text-align: center;
    font-size: 40px;
    margin-top: 4px;
 }  
@@ -43,15 +46,16 @@ strong{
 #searchButton{
    background-color: rgb(249, 228, 232);
    margin: 10px;
+   border: 2px solid white;
 }
 .searchHeader{
    font-size: 25px;
-}
-.searchHeader, .containerBig{
    padding-top: 20px;
 }
+
 .containerBig{
    height: 300px;
+   padding-top: 20px;
 }
 
 #buttonList{
@@ -69,6 +73,11 @@ strong{
    cursor: pointer;
    margin: 15px;
    background-color: rgb(249, 228, 232);
+}
+
+.card-body{
+   background-color: rgb(249, 228, 232);
+   border: 2px solid white;
 }
 
 .Low{

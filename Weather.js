@@ -14,7 +14,7 @@ $("#searchButton").on("click", function(event){
       }).then(function(response) {
         // Display response in the console log
         console.log(response)
-        $(".city").html("<h1>" + response.name + " Weather Forecast</h1>");
+        $(".city").html("<h1>" + response.name + " Weather</h1>");
 
         $(".date").text(luxon.DateTime.local().toLocaleString({
           weekday: "long",
@@ -63,10 +63,10 @@ $("#searchButton").on("click", function(event){
     if( uvIndex <= 2){
       uvIndexEl.addClass("Low");
       //ohio, new york example
-    } else if (uvIndex > 2 && uvIndex <= 5){
+    } else if (uvIndex >= 2 && uvIndex <= 5){
       uvIndexEl.addClass("Moderate");
       //florida example
-    } else if (uvIndex > 5 && uvIndex <= 7){
+    } else if (uvIndex >= 5 && uvIndex <= 7){
       uvIndexEl.addClass("High");
       //hawaii example
     } else {
