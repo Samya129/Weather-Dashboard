@@ -60,18 +60,31 @@ $("#searchButton").on("click", function(event){
     console.log("uvIndex: " + response.value);
     uvIndexEl = $(".uvIndex")
     var uvIndex= response.value;
+    console.log(uvIndex)
     if( uvIndex <= 2){
+      uvIndexEl.removeClass("Moderate")
+      uvIndexEl.removeClass("High")
+      uvIndexEl.removeClass("Very-high")
       uvIndexEl.addClass("Low");
       //ohio, new york example
     } else if (uvIndex >= 2 && uvIndex <= 5){
+      uvIndexEl.removeClass("Low")
+      uvIndexEl.removeClass("High")
+      uvIndexEl.removeClass("Very-high")
       uvIndexEl.addClass("Moderate");
       //florida example
     } else if (uvIndex >= 5 && uvIndex <= 7){
+      uvIndexEl.removeClass("Low")
+      uvIndexEl.removeClass("Moderate")
+      uvIndexEl.removeClass("Very-high")
       uvIndexEl.addClass("High");
       //hawaii example
     } else {
+      uvIndexEl.removeClass("Low")
+      uvIndexEl.removeClass("Moderate")
+      uvIndexEl.removeClass("High")
       uvIndexEl.addClass("Very-high");
-      //??
+      
     }
     var queryURL3 = "https://api.openweathermap.org/data/2.5/onecall?" + "lat=" + lat + "&lon=" + lon + "&units=imperial&exclude=current,minutely,hourly,alerts" + "&appid=" + APIKey; 
 
@@ -80,10 +93,60 @@ $("#searchButton").on("click", function(event){
       method: "GET",
       }).then(function (response) {
       console.log(response); 
-      
+      //How to display it into card-body?
+      for(i=0; i< 5; i++){
+        var HighTemp = "HighTemp:" + response.daily[i].temp.max 
+        var Humidity = "Humidity: " + response.daily[i].humidity + " %"
+
+
+
+
+        $(".showFiveDayForecast").append(`
+        <div class="col-md-2">
+        <div class="card" style="width: 9;">
+          <div class="card-body">
+            <p class="card-text">${HighTemp}</p>
+             <p class="card-text">${Humidity}</p>
+             
+          </div>
+        </div>
+      </div>
+        `)
+        
+        // + response.daily.weather[i].icon + "Temperature: " +response.daily[i].temp + tempF.toFixed(2) + " °F" + "Humidity: " + 
+        
+        // .append();
+      }
+       
     });
     
     });
     
   });
 })
+
+//Each button on-click, shows weather and saves to local storage?
+
+// // $("").each(function(){}
+// var cityBtn = $("#buttonList button")
+// cityBtn.on("click", function() {
+// //alert("This works?")
+
+// let weather = $(this).siblings("#fontProp").val();
+
+// //console.log(weather);
+
+// localStorage.setItem(weather);
+// });
+
+// function storedInfo (){
+// $(".date").each(function(){
+//   let storedInfo = localStorage.getItem(weather);
+
+//   if (storedInfo !== null) {
+//     $(this).siblings("fontProp").val(storedInfo);
+//    }
+// })
+// }
+// //Call it here
+// storedInfo();

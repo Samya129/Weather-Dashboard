@@ -81,18 +81,26 @@ strong{
 }
 
 .Low{
-   background-color: green;
+   border-left: solid green 15px;
+   border-radius: 50px;
+   padding: 5px;
    
 }
 
 .Moderate{
-   background-color: yellow;
+   border-left: solid yellow 15px;
+   border-radius: 50px;
+   padding: 5px;
 }
 
 .High{
-   background-color: orange;
+   border-left: solid orange 15px;
+   border-radius: 50px;
+   padding: 5px;
 }
 
 .Very-high{
-   background-color: red;
+   border-left: solid red 15px;
+   border-radius: 50px;
+   padding: 5px;
 }
