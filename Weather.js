@@ -1,11 +1,12 @@
 var APIKey = "3351f058ad9dfc0e4631d2d16fcfdcff"
 let searchButton = $("#searchButton");
+var cityBtn = $("#buttonList button")
 
 $("#searchButton").on("click", function(event){
   alert("Works?")
   event.preventDefault(); //how to add an enter keyup or down function with on click... 
   var location = $("#searchInput").val();
-  console.log($("#searchInput").val())
+  //console.log($("#searchInput").val())
   var queryURL = "https://api.openweathermap.org/data/2.5/weather?" +
       "q="+ location +"&appid=" + APIKey;
       $.ajax({
@@ -28,16 +29,16 @@ $("#searchButton").on("click", function(event){
         
       var tempF = (response.main.temp - 273.15) * 1.80 + 32;
       $(".tempF").text("Temperature: " + tempF.toFixed(2) + " °F");
-      console.log("Temperature (F): " + tempF);
+      //console.log("Temperature (F): " + tempF);
 
       $(".windSpeed").text("Wind Speed: " + response.wind.speed + " MPH");
-      console.log("Wind Speed: " + response.wind.speed + "MPH");
+      //console.log("Wind Speed: " + response.wind.speed + "MPH");
 
       $(".humidity").text("Humidity: " + response.main.humidity + " %");
-      console.log("Humidity: " + response.main.humidity + "%");
+      //console.log("Humidity: " + response.main.humidity + "%");
       
     $("#buttonList").append("<button>"+ response.name +"</button>");
-    //hr break into it 
+    event.preventDefault();
     
     var lat = response.coord.lat
     var lon = response.coord.lon 
@@ -57,10 +58,10 @@ $("#searchButton").on("click", function(event){
     }).then(function (response) {
     console.log(response)
     $(".uvIndex").text("uvIndex: " + response.value);
-    console.log("uvIndex: " + response.value);
+    //console.log("uvIndex: " + response.value);
     uvIndexEl = $(".uvIndex")
     var uvIndex= response.value;
-    console.log(uvIndex)
+    //console.log(uvIndex)
     if( uvIndex <= 2){
       uvIndexEl.removeClass("Moderate");
       uvIndexEl.removeClass("High");
@@ -93,29 +94,34 @@ $("#searchButton").on("click", function(event){
       method: "GET",
       }).then(function (response) {
       console.log(response); 
-      //Card display
+      //Card Display
       for(i=0; i< 5; i++){
-        var highTemp = "High:" + response.daily[i].temp.max + " °F"
-        var humidity = "Humidity: " + response.daily[i].humidity + " %"
+        
+        var date = (response.daily[i].dt);
         
         let weatherArt2 = response.daily[i].weather[0].icon
-         var iconurl2 = "https://openweathermap.org/img/w/" + weatherArt2 + ".png";
-         $("#weatherArt").attr('src', iconurl2);
+        var iconurl2 = "https://openweathermap.org/img/w/" + weatherArt2 + ".png";
+        $("#weatherArt").attr('src', iconurl2);
+
+        var highTemp = "High:" + response.daily[i].temp.max + " °F"
+        var lowTemp = "Low:" + response.daily[i].temp.min + " °F"
+        var humidity = "Humidity: " + response.daily[i].humidity + " %"
+        
 
         $(".showFiveDayForecast").append(`
         <div class="col-md-2">
         <div class="card" style="width: 9;">
           <div class="card-body">
+          <p class="card-text">${date}</p>
+          <img src="${iconurl2}"/>
             <p class="card-text">${highTemp}</p>
-             <p class="card-text">${humidity}</p>
-             <img src="${iconurl2}"/>
+            <p class="card-text">${lowTemp}</p>
+            <p class="card-text">${humidity}</p>
           </div>
         </div>
       </div>
         `)
-        //Date?
-        // <p class="card-text">${imageIcon}</p>
-        // var imageIcon = response.daily[i].weather[i].icon
+
       }
        
     });
@@ -124,29 +130,26 @@ $("#searchButton").on("click", function(event){
     
   });
 })
+//Local storage area
 
-//Each button on-click, shows weather and saves to local storage?
+$("#buttonList").on("click", function(event){
+  alert("Hey you!")
 
-// // $("").each(function(){}
-// var cityBtn = $("#buttonList button")
-// cityBtn.on("click", function() {
-// //alert("This works?")
 
-// let weather = $(this).siblings("#fontProp").val();
+// let cityBtns = $(this).childrenNodes("#buttonList").val();
+// console.log(this)
+// localStorage.setItem(cityBtns);
+// renderLastRegistered();
+ });
 
-// //console.log(weather);
+ function storedbuttons (){
+ $("#buttonList button").each(function(){
+   let storedInfo = localStorage.getItem(response.name);
 
-// localStorage.setItem(weather);
-// });
-
-// function storedInfo (){
-// $(".date").each(function(){
-//   let storedInfo = localStorage.getItem(weather);
-
-//   if (storedInfo !== null) {
-//     $(this).siblings("fontProp").val(storedInfo);
-//    }
-// })
-// }
-// //Call it here
-// storedInfo();
+   if (storedInfo !== null) {
+    $(this).siblings("buttonList").val(storedInfo);
+  }
+ })
+ }
+//Call it here
+storedbuttons();
