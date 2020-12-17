@@ -134,17 +134,18 @@ $("#searchButton").on("click", function(event){
 
 $("#buttonList").on("click", function(event){
   alert("Hey you!")
-
-
-// let cityBtns = $(this).childrenNodes("#buttonList").val();
-// console.log(this)
-// localStorage.setItem(cityBtns);
+  event.preventDefault();
+ let cityButton = $(this).siblings("#buttonList").val();
+  console.log(cityButton)
+  let $(this).siblings("#Text").val();
+  localStorage.setItem(cityButton, );
 // renderLastRegistered();
  });
 
  function storedbuttons (){
  $("#buttonList button").each(function(){
-   let storedInfo = localStorage.getItem(response.name);
+   let storedInfo = localStorage.getItem(location);
+   let 
 
    if (storedInfo !== null) {
     $(this).siblings("buttonList").val(storedInfo);
