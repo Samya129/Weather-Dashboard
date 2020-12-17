@@ -62,27 +62,27 @@ $("#searchButton").on("click", function(event){
     var uvIndex= response.value;
     console.log(uvIndex)
     if( uvIndex <= 2){
-      uvIndexEl.removeClass("Moderate")
-      uvIndexEl.removeClass("High")
-      uvIndexEl.removeClass("Very-high")
+      uvIndexEl.removeClass("Moderate");
+      uvIndexEl.removeClass("High");
+      uvIndexEl.removeClass("Very-high");
       uvIndexEl.addClass("Low");
       //ohio, new york example
     } else if (uvIndex >= 2 && uvIndex <= 5){
-      uvIndexEl.removeClass("Low")
-      uvIndexEl.removeClass("High")
-      uvIndexEl.removeClass("Very-high")
+      uvIndexEl.removeClass("Low");
+      uvIndexEl.removeClass("High");
+      uvIndexEl.removeClass("Very-high");
       uvIndexEl.addClass("Moderate");
       //florida example
     } else if (uvIndex >= 5 && uvIndex <= 7){
-      uvIndexEl.removeClass("Low")
-      uvIndexEl.removeClass("Moderate")
-      uvIndexEl.removeClass("Very-high")
+      uvIndexEl.removeClass("Low");
+      uvIndexEl.removeClass("Moderate");
+      uvIndexEl.removeClass("Very-high");
       uvIndexEl.addClass("High");
       //hawaii example
     } else {
-      uvIndexEl.removeClass("Low")
-      uvIndexEl.removeClass("Moderate")
-      uvIndexEl.removeClass("High")
+      uvIndexEl.removeClass("Low");
+      uvIndexEl.removeClass("Moderate");
+      uvIndexEl.removeClass("High");
       uvIndexEl.addClass("Very-high");
       
     }
@@ -93,29 +93,29 @@ $("#searchButton").on("click", function(event){
       method: "GET",
       }).then(function (response) {
       console.log(response); 
-      //How to display it into card-body?
+      //Card display
       for(i=0; i< 5; i++){
-        var HighTemp = "HighTemp:" + response.daily[i].temp.max 
-        var Humidity = "Humidity: " + response.daily[i].humidity + " %"
-
-
-
+        var highTemp = "High:" + response.daily[i].temp.max + " °F"
+        var humidity = "Humidity: " + response.daily[i].humidity + " %"
+        
+        // let weatherArt = response.weather[0].icon;
+        // var iconurl = "https://openweathermap.org/img/w/" + weatherArt + ".png";
+        // $("#weatherArt").attr('src', iconurl);
 
         $(".showFiveDayForecast").append(`
         <div class="col-md-2">
         <div class="card" style="width: 9;">
           <div class="card-body">
-            <p class="card-text">${HighTemp}</p>
-             <p class="card-text">${Humidity}</p>
-             
+            <p class="card-text">${highTemp}</p>
+             <p class="card-text">${humidity}</p>
+             <img src="${iconurl}"</>
           </div>
         </div>
       </div>
         `)
-        
-        // + response.daily.weather[i].icon + "Temperature: " +response.daily[i].temp + tempF.toFixed(2) + " °F" + "Humidity: " + 
-        
-        // .append();
+        //Date?
+        // <p class="card-text">${imageIcon}</p>
+        // var imageIcon = response.daily[i].weather[i].icon
       }
        
     });

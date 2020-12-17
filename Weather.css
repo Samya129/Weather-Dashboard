@@ -89,18 +89,18 @@ strong{
 
 .Moderate{
    border-left: solid yellow 15px;
-   border-radius: 50px;
+   border-radius: 60px;
    padding: 5px;
 }
 
 .High{
    border-left: solid orange 15px;
-   border-radius: 50px;
+   border-radius: 60px;
    padding: 5px;
 }
 
 .Very-high{
    border-left: solid red 15px;
-   border-radius: 50px;
+   border-radius: 60px;
    padding: 5px;
 }
