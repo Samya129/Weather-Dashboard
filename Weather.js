@@ -3,7 +3,7 @@ let searchButton = $("#searchButton");
 
 $("#searchButton").on("click", function(event){
   alert("Works?")
-  event.preventDefault(); //how to add an enter keyup or down function with on click... when weather info comes up its pink before click its the transparent background.
+  event.preventDefault(); //how to add an enter keyup or down function with on click... 
   var location = $("#searchInput").val();
   console.log($("#searchInput").val())
   var queryURL = "https://api.openweathermap.org/data/2.5/weather?" +
@@ -98,9 +98,9 @@ $("#searchButton").on("click", function(event){
         var highTemp = "High:" + response.daily[i].temp.max + " °F"
         var humidity = "Humidity: " + response.daily[i].humidity + " %"
         
-        // let weatherArt = response.weather[0].icon;
-        // var iconurl = "https://openweathermap.org/img/w/" + weatherArt + ".png";
-        // $("#weatherArt").attr('src', iconurl);
+        let weatherArt2 = response.daily[i].weather[0].icon
+         var iconurl2 = "https://openweathermap.org/img/w/" + weatherArt2 + ".png";
+         $("#weatherArt").attr('src', iconurl2);
 
         $(".showFiveDayForecast").append(`
         <div class="col-md-2">
@@ -108,7 +108,7 @@ $("#searchButton").on("click", function(event){
           <div class="card-body">
             <p class="card-text">${highTemp}</p>
              <p class="card-text">${humidity}</p>
-             <img src="${iconurl}"</>
+             <img src="${iconurl2}"/>
           </div>
         </div>
       </div>
