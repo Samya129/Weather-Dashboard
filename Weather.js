@@ -132,25 +132,25 @@ $("#searchButton").on("click", function(event){
 })
 //Local storage area
 
-$("#buttonList").on("click", function(event){
-  alert("Hey you!")
-  event.preventDefault();
- let cityButton = $(this).siblings("#buttonList").val();
-  console.log(cityButton)
-  let $(this).siblings("#Text").val();
-  localStorage.setItem(cityButton, );
-// renderLastRegistered();
- });
+// $("#buttonList").on("click", function(event){
+//   alert("Hey you!")
+//   event.preventDefault();
+//  let cityButton = $(this).siblings("#buttonList").val();
+//   console.log(cityButton)
+//   let $(this).siblings("#Text").val();
+//   localStorage.setItem(cityButton, );
+// // renderLastRegistered();
+//  });
 
- function storedbuttons (){
- $("#buttonList button").each(function(){
-   let storedInfo = localStorage.getItem(location);
-   let 
+//  function storedbuttons (){
+//  $("#buttonList button").each(function(){
+//    let storedInfo = localStorage.getItem(location);
+//    let 
 
-   if (storedInfo !== null) {
-    $(this).siblings("buttonList").val(storedInfo);
-  }
- })
- }
-//Call it here
-storedbuttons();
+//    if (storedInfo !== null) {
+//     $(this).siblings("buttonList").val(storedInfo);
+//   }
+//  })
+//  }
+// //Call it here
+// storedbuttons();
