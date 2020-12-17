@@ -96,8 +96,12 @@ $("#searchButton").on("click", function(event){
       console.log(response); 
       //Card Display
       for(i=0; i< 5; i++){
-        
-        var date = (response.daily[i].dt);
+        var date = new Date(1608220800 * 1000).toLocaleDateString('en-US',{
+          month: '2-digit',
+          day: '2-digit',
+          year: 'numeric',
+        })
+        // var date=response.daily[i].dt works!
         
         let weatherArt2 = response.daily[i].weather[0].icon
         var iconurl2 = "https://openweathermap.org/img/w/" + weatherArt2 + ".png";
@@ -107,7 +111,6 @@ $("#searchButton").on("click", function(event){
         var lowTemp = "Low:" + response.daily[i].temp.min + " °F"
         var humidity = "Humidity: " + response.daily[i].humidity + " %"
         
-
         $(".showFiveDayForecast").append(`
         <div class="col-md-2">
         <div class="card" style="width: 9;">
