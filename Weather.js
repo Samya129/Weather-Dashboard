@@ -96,12 +96,11 @@ $("#searchButton").on("click", function(event){
       console.log(response); 
       //Card Display
       for(i=0; i< 5; i++){
-        var date = new Date(1608220800 * 1000).toLocaleDateString('en-US',{
+        var date = new Date(response.daily[i+1].dt * 1000).toLocaleDateString('en-US',{
           month: '2-digit',
           day: '2-digit',
           year: 'numeric',
         })
-        // var date=response.daily[i].dt works!
         
         let weatherArt2 = response.daily[i].weather[0].icon
         var iconurl2 = "https://openweathermap.org/img/w/" + weatherArt2 + ".png";
