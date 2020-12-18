@@ -78,9 +78,11 @@ h2{
    background-color: rgb(249, 228, 232);
 }
 
-.card-body{
+.card-body {
    background-color: rgb(249, 228, 232);
    border: 2px solid white;
+   width: 125px;
+  
 }
 
 .Low{

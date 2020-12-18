@@ -1,10 +1,12 @@
 var APIKey = "3351f058ad9dfc0e4631d2d16fcfdcff"
 let searchButton = $("#searchButton");
 var cityBtn = $("#buttonList button")
+var location;
 
 $("#searchButton").on("click", function(event){
   alert("Works?")
   event.preventDefault(); //how to add an enter keyup or down function with on click... 
+  $('.showFiveDayForecast').empty(); //Prevents 
   var location = $("#searchInput").val();
   //console.log($("#searchInput").val())
   var queryURL = "https://api.openweathermap.org/data/2.5/weather?" +
@@ -106,13 +108,13 @@ $("#searchButton").on("click", function(event){
         var iconurl2 = "https://openweathermap.org/img/w/" + weatherArt2 + ".png";
         $("#weatherArt").attr('src', iconurl2);
 
-        var highTemp = "High:" + response.daily[i].temp.max + " °F"
-        var lowTemp = "Low:" + response.daily[i].temp.min + " °F"
-        var humidity = "Humidity: " + response.daily[i].humidity + " %"
+        var highTemp = "High:" + response.daily[i].temp.max + "°F"
+        var lowTemp = "Low:" + response.daily[i].temp.min + "°F"
+        var humidity = "Humidity: " + response.daily[i].humidity + "%"
         
         $(".showFiveDayForecast").append(`
         <div class="col-md-2">
-        <div class="card" style="width: 9;">
+        
           <div class="card-body">
           <p class="card-text">${date}</p>
           <img src="${iconurl2}"/>
@@ -134,17 +136,20 @@ $("#searchButton").on("click", function(event){
 })
 //Local storage area
 
-// $("#buttonList").on("click", function(event){
-//   alert("Hey you!")
-//   event.preventDefault();
+$("#buttonList").on("click", function(event){
+  alert("Hey you!")
+  // console.log(event)
+  event.preventDefault();
 //  let cityButton = $(this).siblings("#buttonList").val();
 //   console.log(cityButton)
-//   let $(this).siblings("#Text").val();
-//   localStorage.setItem(cityButton, );
-// // renderLastRegistered();
-//  });
 
-//  function storedbuttons (){
+ let cityInfo= $(this).children("#searchInput").val();
+console.log(this)
+  localStorage.setItem("city Name",cityInfo);
+// renderLastRegistered();
+ });
+
+//  function storedText (){
 //  $("#buttonList button").each(function(){
 //    let storedInfo = localStorage.getItem(location);
 //    let 
