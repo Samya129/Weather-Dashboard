@@ -135,7 +135,6 @@ $("#searchButton").on("click", function(event){
   });
 })
 //Local storage area
-
 $("#buttonList").on("click", function(event){
   alert("Hey you!")
   // console.log(event)
@@ -149,15 +148,18 @@ console.log(this)
 // renderLastRegistered();
  });
 
-//  function storedText (){
-//  $("#buttonList button").each(function(){
-//    let storedInfo = localStorage.getItem(location);
-//    let 
+ function history (){
+ $("#buttonList button").each(function(){
+   let history = localStorage.getItem(location);
+   let 
 
-//    if (storedInfo !== null) {
-//     $(this).siblings("buttonList").val(storedInfo);
-//   }
-//  })
-//  }
-// //Call it here
-// storedbuttons();
+   if (history !== null) {
+    $(this).siblings("#buttonList").val(history);
+  }
+ })
+ }
+
+history();
+function displayWeather(){
+
+}
