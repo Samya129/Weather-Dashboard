@@ -136,14 +136,14 @@ history();
 };
 //Button area
 $("#searchButton").on("click", function(event){
-  alert("Works?")
+  // alert("Works?")
   event.preventDefault(); //how to add an enter keyup or down function with on click... 
 getWeather();
 localStorage.setItem("city", $("#searchInput").val()) 
 })
 
 $("#buttonList").on("click", function(event){
-  alert("Hey you!")
+  // alert("Hey you!")
   $('#searchInput').val("").empty;
   // console.log(event)
   event.preventDefault();
