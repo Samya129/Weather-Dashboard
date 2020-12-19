@@ -42,15 +42,18 @@ strong{
    font-size: 40px;
    margin-top: 4px;
 }  
+
 h2{
    text-align: center;
 }
+
 #searchButton{
    background-color: rgb(249, 228, 232);
    margin: 10px;
    border: 2px solid white;
    display: inline-block;
 }
+
 .searchHeader{
    font-size: 25px;
    padding-top: 20px;

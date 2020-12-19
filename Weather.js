@@ -1,16 +1,21 @@
 var APIKey = "3351f058ad9dfc0e4631d2d16fcfdcff"
 let searchButton = $("#searchButton");
-var cityBtn = $("#buttonList button")
 var location;
 
-$("#searchButton").on("click", function(event){
-  alert("Works?")
-  event.preventDefault(); //how to add an enter keyup or down function with on click... 
+function history(){
+  var lastCityName =localStorage.getItem("city")
+  if (lastCityName !== null){
+  $("#searchInput").val(lastCityName);
+  getWeather();
+  }}
+history();
+
+  function getWeather(){
   $('.showFiveDayForecast').empty(); //Prevents 
   var location = $("#searchInput").val();
   //console.log($("#searchInput").val())
   var queryURL = "https://api.openweathermap.org/data/2.5/weather?" +
-      "q="+ location +"&appid=" + APIKey;
+      "q="+ location +"&units=imperial" +"&appid=" + APIKey;
       $.ajax({
         url: queryURL,
         method: "GET"
@@ -29,8 +34,8 @@ $("#searchButton").on("click", function(event){
       let iconurl = "https://openweathermap.org/img/w/" + weatherArt + ".png";
       $("#weatherArt").attr('src', iconurl);
         
-      var tempF = (response.main.temp - 273.15) * 1.80 + 32;
-      $(".tempF").text("Temperature: " + tempF.toFixed(2) + " °F");
+      var tempF = (response.main.temp)
+      $(".tempF").text("Temperature: " + tempF + " °F");
       //console.log("Temperature (F): " + tempF);
 
       $(".windSpeed").text("Wind Speed: " + response.wind.speed + " MPH");
@@ -40,7 +45,6 @@ $("#searchButton").on("click", function(event){
       //console.log("Humidity: " + response.main.humidity + "%");
       
     $("#buttonList").append("<button>"+ response.name +"</button>");
-    event.preventDefault();
     
     var lat = response.coord.lat
     var lon = response.coord.lon 
@@ -110,7 +114,7 @@ $("#searchButton").on("click", function(event){
 
         var highTemp = "High:" + response.daily[i].temp.max + "°F"
         var lowTemp = "Low:" + response.daily[i].temp.min + "°F"
-        var humidity = "Humidity: " + response.daily[i].humidity + "%"
+        var humidity = "Humidity:" + response.daily[i].humidity + "%"
         
         $(".showFiveDayForecast").append(`
         <div class="col-md-2">
@@ -125,41 +129,24 @@ $("#searchButton").on("click", function(event){
         </div>
       </div>
         `)
-
-      }
-       
+      }  
     });
-    
     });
-    
   });
+};
+//Button area
+$("#searchButton").on("click", function(event){
+  alert("Works?")
+  event.preventDefault(); //how to add an enter keyup or down function with on click... 
+getWeather();
+localStorage.setItem("city", $("#searchInput").val()) 
 })
-//Local storage area
+
 $("#buttonList").on("click", function(event){
   alert("Hey you!")
+  $('#searchInput').val("").empty;
   // console.log(event)
   event.preventDefault();
-//  let cityButton = $(this).siblings("#buttonList").val();
-//   console.log(cityButton)
-
- let cityInfo= $(this).children("#searchInput").val();
-console.log(this)
-  localStorage.setItem("city Name",cityInfo);
-// renderLastRegistered();
+  $("#searchInput").val($(this).text());
+  getWeather();
  });
-
- function history (){
- $("#buttonList button").each(function(){
-   let history = localStorage.getItem(location);
-   let 
-
-   if (history !== null) {
-    $(this).siblings("#buttonList").val(history);
-  }
- })
- }
-
-history();
-function displayWeather(){
-
-}
