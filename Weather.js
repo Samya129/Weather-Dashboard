@@ -2,17 +2,16 @@ var APIKey = "3351f058ad9dfc0e4631d2d16fcfdcff"
 let searchButton = $("#searchButton");
 var location;
 
-function history(){
-  var lastCityName =localStorage.getItem("city")
-  if (lastCityName !== null){
-  $("#searchInput").val(lastCityName);
-  getWeather();
-  }}
-history();
+function save(newCity){
+  var CitiesSearched =JSON.parse(localStorage.getItem("city"))|| [];
+  //or make an array
+  CitiesSearched.push(newCity)
+  localStorage.setItem("city", JSON.stringify(CitiesSearched))
+  }
 
-  function getWeather(){
+  function getWeather(location){
   $('.showFiveDayForecast').empty(); //Prevents 
-  var location = $("#searchInput").val();
+  
   //console.log($("#searchInput").val())
   var queryURL = "https://api.openweathermap.org/data/2.5/weather?" +
       "q="+ location +"&units=imperial" +"&appid=" + APIKey;
@@ -44,7 +43,6 @@ history();
       $(".humidity").text("Humidity: " + response.main.humidity + " %");
       //console.log("Humidity: " + response.main.humidity + "%");
       
-    $("#buttonList").append("<button>"+ response.name +"</button>");
     
     var lat = response.coord.lat
     var lon = response.coord.lon 
@@ -136,17 +134,25 @@ history();
 };
 //Button area
 $("#searchButton").on("click", function(event){
-  // alert("Works?")
+  var location = $("#searchInput").val();
   event.preventDefault(); //how to add an enter keyup or down function with on click... 
-getWeather();
-localStorage.setItem("city", $("#searchInput").val()) 
+getWeather(location);
+save(location);
 })
 
-$("#buttonList").on("click", function(event){
-  // alert("Hey you!")
-  $('#searchInput').val("").empty;
-  // console.log(event)
-  event.preventDefault();
-  $("#searchInput").val($(this).text());
-  getWeather();
+ function displayButtons(){
+  var allCitiesSaved =JSON.parse(localStorage.getItem("city"))|| [];
+  allCitiesSaved.forEach(city => {
+  $("#buttonList").append('<button class="savedCityButton">'+ city +"</button>");
+    //console.log(city);
+  });
+ }
+
+ displayButtons();
+
+ $(".savedCityButton").on("click", function(){
+  //console.log($(this).text());
+  var button = $(this).text();
+  getWeather(button);
+  //console.log(button)
  });
